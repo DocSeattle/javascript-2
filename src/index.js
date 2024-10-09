@@ -1,8 +1,6 @@
-//Import modules:
-//TODO: Import functions from averages.js.
-//TODO: Import function from display.js.
-//TODO: Import function from randomSelect.js.
-
+import { printAll } from './display.js';
+import { randomSelect } from './randomSelect.js';
+import { averageForStudent, averageForTest } from './ScoreCalc/averages.js';
 //Candidate data:
 let astronauts = ['Fox','Turtle','Cat','Hippo','Dog'];
 
@@ -17,18 +15,22 @@ for (let i = 0; i<prompts.length; i++){
   console.log(prompts[i])
     if (i===0){
       //TODO: Call 'printAll' here and pass in all necessary arguments.
+      printAll(astronauts, testTitles, scores);
     } else if (i===1){
       for (let j = 0; j<testTitles.length; j++){
-        let avg = 0//TODO Call 'averageForTest' here. Pass in j and scores as arguments.
+        let avg = averageForTest(j, scores);//TODO Call 'averageForTest' here. Pass in j and scores as arguments.
+        
         console.log(`${testTitles[j]} test average = ${avg}%.`);
       }
     } else if (i===2){
       for (let j = 0; j<astronauts.length; j++){
-        let avg =0 //TODO Call 'averageForStudent' here. Pass in j and scores as arguments.
+        let avg = averageForStudent(j, scores);//TODO Call 'averageForStudent' here. Pass in j and scores as arguments.
+        
         console.log(`${astronauts[j]}'s test average = ${avg}%.`);
       }
     } else {
-      let walker =0 //Call 'randomSelect' to pick a spacewalker from the astronauts array.
+      let walker = randomSelect(astronauts);//Call 'randomSelect' to pick a spacewalker from the astronauts array.
+      
       console.log(`${walker} is the next spacewalker.`);
     }
 }

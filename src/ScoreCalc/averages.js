@@ -17,3 +17,4 @@ function averageForStudent(nameIndex,scores){
   }
   
   //TODO: Export all functions within an object.
+  export { averageForStudent, averageForTest }
