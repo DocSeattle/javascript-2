@@ -18,17 +18,13 @@ function retrieveRates(CUR, CUR2)
 {
     //TODO: This function should retrieve the relative rates
     // from the API and return them.
-    const reader = new FileReader();
-    const apikey = reader.readAsText('./.apikey');
+   // const reader = new FileReader();
+    // const apikey = reader.readAsText('.apikey');
 
-    let json = fetch('https://v6.exchangerate-api.com/v6/'+apikey+'/latest/'+CUR)
-        .then((response) => response.json()) // unclear as to what this is actually doing.
-        .then((json) => console.log(json)) // Print JSON to console
-        .then((json) => JSON.parse(json))
-        
-        // filter out all but the CUR2 keys/values and then use that to 
-        // perform the rate calculation
-        ;
-    let rates;
+    let json = fetch('https://v6.exchangerate-api.com/v6/e3107dcfaac0004c4ea41e72/latest/USD')
+        .then((response) => response.json());
+    
+    let rates = json.conversion_rates;
+    console.log(json.conversion_rates.CUR2);
     return rates;
 }
